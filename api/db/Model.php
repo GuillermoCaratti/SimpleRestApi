@@ -114,7 +114,7 @@ abstract class Model{
       DbController::getList(
         "Select * from "
         . self::tableName());
-    return arrayMap(""$result;
+    return $result;
   }
     
   static function where($where){
