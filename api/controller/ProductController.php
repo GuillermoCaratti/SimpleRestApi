@@ -16,6 +16,12 @@ class ProductController{
         return Producto::byId($id);
     }
     
+    public static function delete($id){   
+        $prod =  Producto::byId($id);
+        $prod->delete();
+        return "Ok";
+    }
+    
     public static function create($name,$price){  
         $p = new Producto();
         $p->nombre = $name;

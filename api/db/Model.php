@@ -89,6 +89,16 @@ abstract class Model{
     call_user_func_array(array($stm,"bind_param"),$this->refValues($v));
     $id = DbController::execute($stm);
   }
+    
+  function delete(){
+    $sql = "DELETE FROM " 
+        . self::tableName()
+        . " WHERE id = ?";
+    $stm = DbController::prepare($sql);
+    $params = array("s",$this->id);
+    call_user_func_array(array($stm,"bind_param"),$this->refValues($params));
+    DbController::execute($stm);
+  }
 
   static function transformToEntity($result){
     $selfClass = get_called_class();
