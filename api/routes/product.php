@@ -8,23 +8,20 @@ $RestApi->get("/api/product/?",function($id){
     
 });
 
-$RestApi->get("/api/product/?/?",function($name,$price){
+$RestApi->post("/api/product?",function($data){
     
-    return PrCnt::create($name,$price);
+    return PrCnt::create($data->name,$data->price);
 });
 
-$RestApi->get("/api/product/?/?/?",function($id,$name,$price){
+$RestApi->put("/api/product/?",function($id,$data){
     
-    return PrCnt::update($id,$name,$price);
+    return PrCnt::update($id,$data->name,$data->price);
 });
 
-$RestApi->get("/api/product",function($name,$price){
-    
+$RestApi->get("/api/product",function(){
     return PrCnt::all();
 });
 
-$RestApi->get("/api/delete/product/?",function($id){
-
+$RestApi->delete("/api/product/?",function($id){
     return PrCnt::delete($id);
-    
 });
