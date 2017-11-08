@@ -37,7 +37,7 @@
           "password" : $("#password").value
         }
 
-        RestApi.post("/api/login",credentials)
+        RestApi.post("/api/product",credentials)
           .then((msg)=> console.log(msg))
           .catch((err)=>console.error(err))
       })

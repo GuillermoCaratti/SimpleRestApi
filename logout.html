@@ -18,10 +18,7 @@
     <![endif]-->
   </head>
   <body>
-    <h1>Login</h1>
-    <input id="username"/>
-    <input type="password" id="password"/>
-    <button id="login">Login</button>
+    <h1>Saliendo</h1>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -31,16 +28,11 @@
     <script src="js/util.js"></script>
     <script>
 
-      $("#login").on("click",()=>{
-        const credentials = {
-          "username" : $("#username").value,
-          "password" : $("#password").value
-        }
 
-        RestApi.post("/api/login",credentials)
-          .then((msg)=> console.log(msg))
+        RestApi.post("/api/logout")
+          .then((msg)=> window.location = "/index.html")
           .catch((err)=>console.error(err))
-      })
+  
 
 
     </script>

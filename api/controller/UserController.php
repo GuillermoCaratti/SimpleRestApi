@@ -10,7 +10,8 @@ class UserController{
     $user = new Usuarios();
     $user->usuario = $username;
     $user->pass = $pass;
-    $user->save();
+    $user->role = 0;
+    $user->create();
   }
 
 }

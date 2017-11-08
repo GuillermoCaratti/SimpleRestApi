@@ -8,13 +8,13 @@ $RestApi->get("/api/product/?",function($id){
 
 });
 
-$RestApi->post("/api/product?",function($data){
-
+$RestApi->post("/api/product",function($data){
+    AuthController::validateAdmin();
     return PrCnt::create($data->name,$data->price);
 });
 
 $RestApi->put("/api/product/?",function($id,$data){
-    AuthController::validate();
+    AuthController::validateAdmin();
     return PrCnt::update($id,$data->name,$data->price);
 });
 
@@ -23,5 +23,6 @@ $RestApi->get("/api/product",function(){
 });
 
 $RestApi->delete("/api/product/?",function($id){
+    AuthController::validateAdmin();
     return PrCnt::delete($id);
 });

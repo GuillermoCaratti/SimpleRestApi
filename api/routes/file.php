@@ -3,8 +3,7 @@
 use controller\FileController;
 
 $RestApi->post("/api/file",function ($data){
-  FileController::write($data->data,$data->name);
-  return "OK";
+  return FileController::write($data->data,$data->name);
 });
 
 

@@ -21,7 +21,9 @@ CREATE TABLE Usuarios(
        id INT NOT NULL AUTO_INCREMENT,
        usuario VARCHAR(30) NOT NULL,
        pass VARCHAR(30) NOT NULL,
+       role INT NOT NULL,
        PRIMARY KEY (id)
 );
 
-INSERT INTO Usuarios (usuario,pass) VALUES ('admin','admin');
+INSERT INTO Usuarios (usuario,pass,role) VALUES ('admin','admin',1);
+INSERT INTO Usuarios (usuario,pass,role) VALUES ('user','passw0rd',0);

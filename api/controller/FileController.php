@@ -11,6 +11,7 @@ class FileController{
      $data = explode( ',', $b64_data );
      fwrite( $ifp, base64_decode( $data[ 1 ] ) );
      fclose( $ifp );
+     return $data[ 0 ];
   }
 
   public function read($fileName){
@@ -18,7 +19,7 @@ class FileController{
     header('Expires: 0');
     header('Cache-Control: must-revalidate');
     header('Content-Length: ' . filesize($file));
-    header('Content-type: image/png');
+    header('Content-type: image/jpeg');
 
     readfile($file);
     die();
